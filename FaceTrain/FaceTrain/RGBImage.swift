@@ -10,7 +10,7 @@
 import UIKit
 import Foundation
 
-public struct FaceVerifyBitArray {
+public struct TrainFaceBitArray {
     var bitMap: [Int]
     init(image: UIImage) {
         let rgbaImage = RGBAImage(image: image)
@@ -19,14 +19,15 @@ public struct FaceVerifyBitArray {
     }
 }
 
-public class FaceVerifyImage {
-    private var verifyImage: UIImage!
-    private var bitArray: FaceVerifyBitArray!
+public class TrainFaceImage {
+    private var trainImage: UIImage!
+    private var bitArray: TrainFaceBitArray!
     
     init(image: UIImage) {
         let imageToChange = resize(image: image)
-        self.verifyImage = convertToGrayScale(image: imageToChange)
-        self.bitArray = FaceVerifyBitArray(image: self.verifyImage)
+        let detectedFace = detectFace(inImage: imageToChange)
+        self.trainImage = convertToGrayScale(image: detectedFace!)
+        self.bitArray = TrainFaceBitArray(image: self.trainImage)
     }
     
     private func convertToGrayScale(image: UIImage) -> UIImage {
@@ -45,22 +46,92 @@ public class FaceVerifyImage {
         return newImage
     }
     
-    func getVerifyImage() -> UIImage {
-        return verifyImage
+    func getTrainImage() -> UIImage {
+        return trainImage
     }
     
-    func getBitArray() -> FaceVerifyBitArray {
+    func getBitArray() -> TrainFaceBitArray {
         return bitArray
+    }
+    
+   fileprivate func detectFace(inImage image: UIImage) -> UIImage? {
+        let personciImage = CIImage(cgImage: image.cgImage!)
+        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
+        let faces = faceDetector?.features(in: personciImage)
+        let ciImageSize = personciImage.extent.size
+        var transform = CGAffineTransform(scaleX: 1, y: -1)
+        transform = transform.translatedBy(x: 0, y: -ciImageSize.height)
+        
+        for face in faces as! [CIFaceFeature] {
+            var faceViewBounds = face.bounds.applying(transform)
+            let viewSize = CGSize(width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant)
+            let scale = min(viewSize.width / ciImageSize.width, viewSize.height / ciImageSize.height)
+            let offsetX = (viewSize.width - ciImageSize.width * scale) / 2
+            let offsetY = (viewSize.height - ciImageSize.height * scale) / 2
+            
+            faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
+            faceViewBounds.origin.x += offsetX
+            faceViewBounds.origin.y += offsetY
+            let faceViewRect = face.bounds.applying(transform)
+            let scaleOffset: CGFloat = 10.0
+            let scaledFaceViewRect = CGRect(x: faceViewRect.origin.x - (scaleOffset / 2)  , y: faceViewRect.origin.y - scaleOffset, width: faceViewRect.size.width + scaleOffset, height: faceViewRect.size.height + scaleOffset)
+            
+            let faceImage = cutFace(image: image, rect: scaledFaceViewRect)
+            var rotatedFaceImage = faceImage
+            if face.hasLeftEyePosition && face.hasRightEyePosition {
+                rotatedFaceImage = imageRotatedByDegrees(oldImage: faceImage, deg: CGFloat(getEyesRotationAngle(leftEyePosition: face.leftEyePosition, rightEyePosition: face.rightEyePosition)))
+            }
+            let processedImage = resize(image: rotatedFaceImage)
+            return processedImage
+        }
+        return nil
+    }
+    
+    fileprivate func cutFace(image: UIImage,rect: CGRect) -> UIImage {
+        let cropImage = image.cgImage!
+        let cropedImage = cropImage.cropping(to: rect)
+        return UIImage(cgImage: cropedImage!)
+    }
+    
+    
+    fileprivate func getEyesRotationAngle(leftEyePosition: CGPoint, rightEyePosition: CGPoint) -> Double {
+        let h = leftEyePosition.y - rightEyePosition.y
+        let l = getDistance(ofPoint: leftEyePosition, fromPoint: rightEyePosition)
+        let  sin = h / l
+        return  -asin(Double(sin)) * 180 / Double.pi
+    }
+    
+    fileprivate func getDistance(ofPoint firstPoint: CGPoint, fromPoint secondPoint: CGPoint) -> CGFloat {
+        return sqrt(pow((firstPoint.x - secondPoint.x),2) + pow((firstPoint.y - secondPoint.y),2))
+    }
+    
+
+    
+   fileprivate func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
+        let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))
+        let t: CGAffineTransform = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / 180)
+        rotatedViewBox.transform = t
+        let rotatedSize: CGSize = rotatedViewBox.frame.size
+        UIGraphicsBeginImageContext(rotatedSize)
+        let bitmap: CGContext = UIGraphicsGetCurrentContext()!
+        bitmap.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+        bitmap.rotate(by: (degrees * CGFloat.pi / 180))
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        bitmap.draw(oldImage.cgImage!, in: CGRect(x: -oldImage.size.width / 2, y: -oldImage.size.height / 2, width: oldImage.size.width, height: oldImage.size.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
 }
 
-fileprivate let FaceVerifyImageWidthConstant: CGFloat = 100
-fileprivate let FaceVerifyImageHeightConstant: CGFloat = 100
+fileprivate let TrainFaceImageWidthConstant: CGFloat = 100
+fileprivate let TrainFaceImageHeightConstant: CGFloat = 100
 
 fileprivate func resize(image: UIImage) -> UIImage {
-    UIGraphicsBeginImageContext(CGSize(width: FaceVerifyImageWidthConstant, height: FaceVerifyImageHeightConstant))
-    image.draw(in: CGRect(x: 0, y: 0, width: FaceVerifyImageWidthConstant, height: FaceVerifyImageHeightConstant))
+    UIGraphicsBeginImageContext(CGSize(width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant))
+    image.draw(in: CGRect(x: 0, y: 0, width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant))
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     

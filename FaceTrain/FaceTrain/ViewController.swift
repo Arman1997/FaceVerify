@@ -8,41 +8,45 @@
 
 
 import UIKit
-import CoreFoundation
 import  Foundation
+import CoreImage
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var imagePicker: UIImagePickerController!
-    var imageToRecognize: FaceVerifyImage!
+    
+    @IBOutlet weak var faceImageView: UIImageView!
+    var trainFace: TrainFaceImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
-        imagePicker.cameraDevice = .front
-        imagePicker.cameraCaptureMode = .photo
         imagePicker.delegate = self
         
     }
+    
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
+    @IBAction func detect(_ sender: Any) {
+        trainFace = TrainFaceImage(image: personImageView.image!)
+        self.faceImageView.image = trainFace.getTrainImage()
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageToRecognize = FaceVerifyImage(image: image)
-        personImageView.image = imageToRecognize.getVerifyImage()
-        print(imageToRecognize.getBitArray().bitMap)
-        self.imagePicker.dismiss(animated: true, completion: nil)
-        
+        personImageView.image = image
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    
+ 
+
     @IBAction func cameraButtonAction(_ sender: Any) {
         self.present(imagePicker, animated: false)
     }
