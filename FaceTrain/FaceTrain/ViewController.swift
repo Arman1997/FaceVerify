@@ -32,11 +32,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet weak var cameraButton: UIButton!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+       
+        print([1,2,3] - [1.0,3.0,3.0])
     }
     @IBAction func detect(_ sender: Any) {
-        trainFace = TrainFaceImage(image: personImageView.image!)
-        self.faceImageView.image = trainFace.getTrainImage()
+     
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -48,7 +48,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
  
 
     @IBAction func cameraButtonAction(_ sender: Any) {
-        self.present(imagePicker, animated: false)
+        let dat1 = Date().millisecondsSince1970
+        let images = ["arman1","arman2","arman3","arman4","arman5"]
+        var faceImages = [TrainFaceImage]()
+        images.forEach({ faceImages.append(TrainFaceImage.init(image: UIImage(named: $0)!))})
+        faceImages.forEach({ FaceTrainer.shared.appendFace(forImage: $0) })
+        FaceTrainer.shared.startTrain()
+        print(Date().millisecondsSince1970 - dat1)
+    }
+    
+
+    
+}
+
+extension Date {
+    var millisecondsSince1970:CLong {
+        return CLong((self.timeIntervalSince1970 * 1000.0).rounded())
     }
     
 }

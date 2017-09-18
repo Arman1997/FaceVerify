@@ -11,9 +11,10 @@
 		C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */; };
 		C2173ACF1F6E6A9400DE3A1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */; };
 		C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */; };
-		C2173AD41F6E6A9400DE3A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2173AD31F6E6A9400DE3A1B /* Assets.xcassets */; };
 		C2173AD71F6E6A9400DE3A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2173AD51F6E6A9400DE3A1B /* LaunchScreen.storyboard */; };
 		C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */; };
+		C238181E1F6EC0C4002B1BC9 /* FaceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */; };
+		C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C238181F1F6EC522002B1BC9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,10 +23,11 @@
 		C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2173ACE1F6E6A9400DE3A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2173AD11F6E6A9400DE3A1B /* FaceTrain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceTrain.xcdatamodel; sourceTree = "<group>"; };
-		C2173AD31F6E6A9400DE3A1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2173AD61F6E6A9400DE3A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2173AD81F6E6A9400DE3A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBImage.swift; sourceTree = "<group>"; };
+		C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceTrainer.swift; sourceTree = "<group>"; };
+		C238181F1F6EC522002B1BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +63,12 @@
 				C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */,
 				C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */,
 				C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */,
-				C2173AD31F6E6A9400DE3A1B /* Assets.xcassets */,
 				C2173AD51F6E6A9400DE3A1B /* LaunchScreen.storyboard */,
 				C2173AD81F6E6A9400DE3A1B /* Info.plist */,
 				C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */,
 				C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */,
+				C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */,
+				C238181F1F6EC522002B1BC9 /* Assets.xcassets */,
 			);
 			path = FaceTrain;
 			sourceTree = "<group>";
@@ -131,7 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2173AD71F6E6A9400DE3A1B /* LaunchScreen.storyboard in Resources */,
-				C2173AD41F6E6A9400DE3A1B /* Assets.xcassets in Resources */,
+				C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */,
 				C2173ACF1F6E6A9400DE3A1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +150,7 @@
 				C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */,
 				C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */,
 				C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */,
+				C238181E1F6EC0C4002B1BC9 /* FaceTrainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +316,7 @@
 				C2173ADD1F6E6A9400DE3A1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
