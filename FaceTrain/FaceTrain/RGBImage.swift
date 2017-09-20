@@ -9,13 +9,14 @@
 
 import UIKit
 import Foundation
+import LASwift
 
 public struct TrainFaceBitArray {
-    var bitMap: [Int]
+    var bitMap: Vector
     init(image: UIImage) {
         let rgbaImage = RGBAImage(image: image)
         let rgbaImageBitArray = Array(rgbaImage!.pixels)
-        bitMap = rgbaImageBitArray.map({ (Int($0.B) + Int ($0.R) + Int($0.G)) / 3})
+        bitMap = rgbaImageBitArray.map({ (Double($0.B) + Double($0.R) + Double($0.G)) / Double(3)})
     }
 }
 

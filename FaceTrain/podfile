@@ -1,0 +1,7 @@
+platform :ios, '10.3'
+use_frameworks!
+inhibit_all_warnings!
+
+target 'FaceTrain' do
+	pod 'LASwift', '~> 0.1.0'
+end
