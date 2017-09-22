@@ -51,11 +51,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     @IBAction func cameraButtonAction(_ sender: Any) {
         let dat1 = Date().millisecondsSince1970
-        let images = ["arman1","arman2","arman3","arman4","arman5",
-                      "bob1","bob2","bob3","bob4","bob5",
-                      "dicap1","dicap2","dicap3","dicap4","dicap5",
-                      "jz1","jz2","jz3","jz4","jz5",
-                      
+        let images = ["arman1",
+                      "spartak1",
+                      "artur1",
+                      "rustam1",
                       ]
         var faceImages = [TrainFaceImage]()
         images.forEach({ faceImages.append(TrainFaceImage.init(image: UIImage(named: $0)!))})

@@ -10,7 +10,7 @@ import Foundation
 import LASwift
 
 final class FaceTrainer {
-    private let percenteage: Double = 0.2
+    private let percenteage: Double = 0.1
     static let shared = FaceTrainer()
     private var facesBitArraysCollection = [TrainFaceBitArray]()
     private var averageFace = Vector()
@@ -53,7 +53,7 @@ final class FaceTrainer {
     
     private func findEigens() {
         let temporaryEigens = eigen(transposeOfCovarianseMatrix)
-        let normalCount = Int(Double(temporaryEigens.count) * percenteage)
+        let normalCount = 4
         var sortedEigens = temporaryEigens.sorted(by: >)
         let normalEigens = sortedEigens[0..<normalCount]
         let eigensArray = normalEigens.map({ mtimes(averageVectors, $0.vectorMatrix)[col: 0] })
@@ -78,6 +78,7 @@ final class FaceTrainer {
         
         let dividingVectors = trainFaceVectors.map({ sum(abs($0 - weightVector))})
         print(mini(dividingVectors))
+        print(min(dividingVectors))
         
     }
   
