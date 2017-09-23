@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C208557B1F764F8A002A97E3 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */; };
 		C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */; };
 		C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */; };
 		C2173ACF1F6E6A9400DE3A1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		2277F10A2A426C723858CBD5 /* Pods-FaceTrain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceTrain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceTrain/Pods-FaceTrain.debug.xcconfig"; sourceTree = "<group>"; };
 		7670FFC17BFDC8E4EFDADD45 /* Pods-FaceTrain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceTrain.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceTrain/Pods-FaceTrain.release.xcconfig"; sourceTree = "<group>"; };
+		C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		C2173AC61F6E6A9400DE3A1B /* FaceTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C20855791F764F70002A97E3 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
 		C2173ABD1F6E6A9400DE3A1B = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		C2173AC81F6E6A9400DE3A1B /* FaceTrain */ = {
 			isa = PBXGroup;
 			children = (
+				C20855791F764F70002A97E3 /* extensions */,
 				C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */,
 				C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */,
 				C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */,
@@ -232,6 +243,7 @@
 			files = (
 				C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */,
 				C2B8EB421F708F530020E9BE /* Helpers.swift in Sources */,
+				C208557B1F764F8A002A97E3 /* UIImageExtensions.swift in Sources */,
 				C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */,
 				C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */,
 				C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */,

@@ -9,9 +9,9 @@
 import Foundation
 import LASwift
 
-final class FaceTrainer {
+final class FVRecognitionTrainer {
     private let percenteage: Double = 0.1
-    static let shared = FaceTrainer()
+    static  let shared = FVRecognitionTrainer()
     private var facesBitArraysCollection = [TrainFaceBitArray]()
     private var averageFace = Vector()
     private var averageVectors: Matrix!
@@ -25,16 +25,21 @@ final class FaceTrainer {
         
     }
     
-    func appendFace(forImage faceImage: TrainFaceImage) {
-        self.facesBitArraysCollection.append(faceImage.getBitArray())
-    }
-    
-    func startTrain() {
+   
+    func startTrain(withImages images: [UIImage]) {
+        appendFaces(forImages: images)
         makeAverageFace()
         countAverageVectors()
         countCovariance()
         findEigens()
     }
+    
+    private func appendFaces(forImages faceImages: [UIImage]) {
+        let recognitionImagesBitsArray = faceImages.map({ FVRecognitionImage(image: $0).getBitArray() })
+        self.facesBitArraysCollection.append(contentsOf: recognitionImagesBitsArray)
+      
+    }
+    
     
     private func makeAverageFace() {
         let faceCollectionCount = facesBitArraysCollection.count
@@ -61,7 +66,7 @@ final class FaceTrainer {
         self.porjectionMatrix = mtimes(self.eigensMatrixTranspose, averageVectors)
     }
     
-    func verify(face: TrainFaceImage) {
+    func verify(face: FVRecognitionImage) {
         let faceBitMap = face.getBitArray().bitMap
        // let weightVector = mtimes(eigensMatrixTranspose, (faceBitMap - averageFace))
         var faceMatrix = zeros(faceBitMap.count, 1)

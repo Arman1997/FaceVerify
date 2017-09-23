@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     var imagePicker: UIImagePickerController!
     
     @IBOutlet weak var faceImageView: UIImageView!
-    var trainFace: TrainFaceImage!
+    var trainFace: FVRecognitionImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     
     @IBAction func detect(_ sender: Any) {
-        FaceTrainer.shared.verify(face: TrainFaceImage(image: self.personImageView.image!))
+        FVRecognitionTrainer.shared.verify(face: FVRecognitionImage(image: self.personImageView.image!))
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -51,15 +51,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     @IBAction func cameraButtonAction(_ sender: Any) {
         let dat1 = Date().millisecondsSince1970
-        let images = ["arman1",
+        let images = [
                       "spartak1",
+                      "arman1",
                       "artur1",
                       "rustam1",
                       ]
-        var faceImages = [TrainFaceImage]()
-        images.forEach({ faceImages.append(TrainFaceImage.init(image: UIImage(named: $0)!))})
-        faceImages.forEach({ FaceTrainer.shared.appendFace(forImage: $0) })
-        FaceTrainer.shared.startTrain()
+        FVRecognitionTrainer.shared.startTrain(withImages: images.map({ UIImage(named: $0)! }))
         print(Date().millisecondsSince1970 - dat1)
     }
     

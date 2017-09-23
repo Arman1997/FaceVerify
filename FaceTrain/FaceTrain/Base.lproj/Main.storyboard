@@ -29,7 +29,7 @@
                                     <action selector="cameraButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LHK-q0-89X"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="s6" translatesAutoresizingMaskIntoConstraints="NO" id="FSs-mQ-ueK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ArturK" translatesAutoresizingMaskIntoConstraints="NO" id="FSs-mQ-ueK">
                                 <rect key="frame" x="0.0" y="28" width="375" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -60,6 +60,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="s6" width="1224" height="1632"/>
+        <image name="ArturK" width="230" height="300"/>
     </resources>
 </document>
