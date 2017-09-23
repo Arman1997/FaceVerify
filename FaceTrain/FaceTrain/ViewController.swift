@@ -12,6 +12,16 @@ import  Foundation
 import CoreImage
 import LASwift
 
+final class Person {
+    var name: String!
+    var id: String!
+    
+    init(name: String, id: String) {
+        self.name = name
+        self.id = id
+    }
+}
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     var imagePicker: UIImagePickerController!
@@ -27,6 +37,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         imagePicker.delegate = self
         
     }
+    var persons = [Person]()
+    
     
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
@@ -38,7 +50,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     
     @IBAction func detect(_ sender: Any) {
-        FVRecognitionTrainer.shared.verify(face: FVRecognitionImage(image: self.personImageView.image!))
+       let fvPerson = FVRecognitionTrainer.shared.verify(face: FVRecognitionImage(image: self.personImageView.image!))
+        let person = self.persons.filter({ $0.id == fvPerson.faceID }).first!
+        let name = person.name
+        print(name!)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -57,7 +72,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                       "artur1",
                       "rustam1",
                       ]
-        FVRecognitionTrainer.shared.startTrain(withImages: images.map({ UIImage(named: $0)! }))
+        images.forEach({
+            let fvPerson = FVRecognitionTrainer.shared.appendFace(forImage: UIImage(named: $0)!)
+            persons.append(Person(name: $0, id: fvPerson.faceID))
+        })
+        
+        FVRecognitionTrainer.shared.startTrain()
         print(Date().millisecondsSince1970 - dat1)
     }
     

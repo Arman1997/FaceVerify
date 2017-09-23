@@ -9,6 +9,18 @@
 import Foundation
 import LASwift
 
+final class FVPerson {
+    private var _faceID: String!
+    var faceID: String {
+        return _faceID
+    }
+    
+    init(id: String) {
+        self._faceID = id
+    }
+    
+}
+
 final class FVRecognitionTrainer {
     private let percenteage: Double = 0.1
     static  let shared = FVRecognitionTrainer()
@@ -20,24 +32,26 @@ final class FVRecognitionTrainer {
     private var eigenVectors: Matrix!
     private var eigensMatrixTranspose: Matrix!
     private var porjectionMatrix: Matrix!
+    private var personsList = [FVPerson]()
     
     private init() {
         
     }
     
-   
-    func startTrain(withImages images: [UIImage]) {
-        appendFaces(forImages: images)
+    
+    func startTrain() {
         makeAverageFace()
         countAverageVectors()
         countCovariance()
         findEigens()
     }
     
-    private func appendFaces(forImages faceImages: [UIImage]) {
-        let recognitionImagesBitsArray = faceImages.map({ FVRecognitionImage(image: $0).getBitArray() })
-        self.facesBitArraysCollection.append(contentsOf: recognitionImagesBitsArray)
-      
+    func appendFace(forImage faceImage: UIImage) -> FVPerson {
+        let recognitionImageBitsArray = FVRecognitionImage(image: faceImage).getBitArray()
+        self.facesBitArraysCollection.append(recognitionImageBitsArray)
+        let person = FVPerson(id: UUID().uuidString)
+        personsList.append(person)
+        return person
     }
     
     
@@ -66,25 +80,23 @@ final class FVRecognitionTrainer {
         self.porjectionMatrix = mtimes(self.eigensMatrixTranspose, averageVectors)
     }
     
-    func verify(face: FVRecognitionImage) {
+    func verify(face: FVRecognitionImage) -> FVPerson {
         let faceBitMap = face.getBitArray().bitMap
-       // let weightVector = mtimes(eigensMatrixTranspose, (faceBitMap - averageFace))
         var faceMatrix = zeros(faceBitMap.count, 1)
         faceMatrix = insert(faceMatrix, col: faceBitMap - averageFace, at: 0)
         let weightMatrix = mtimes(eigensMatrixTranspose, faceMatrix)
         let weightVector = weightMatrix[col: 0]
         
         //////
-        
+    
         var trainFaceVectors = [Vector]()
         for colIndex in 0..<self.porjectionMatrix.cols {
             trainFaceVectors.append(self.porjectionMatrix[col: colIndex])
         }
         
         let dividingVectors = trainFaceVectors.map({ sum(abs($0 - weightVector))})
-        print(mini(dividingVectors))
-        print(min(dividingVectors))
-        
+        let personIndex = mini(dividingVectors)
+        return personsList[personIndex]
     }
   
     
