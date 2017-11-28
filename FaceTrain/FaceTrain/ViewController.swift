@@ -26,7 +26,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     var imagePicker: UIImagePickerController!
     
-    @IBOutlet weak var faceImageView: UIImageView!
     var trainFace: FVRecognitionImage!
     
     override func viewDidLoad() {
@@ -39,55 +38,56 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     var persons = [Person]()
     
+    @IBOutlet weak var personImageViwe: UIImageView!
+    @IBOutlet weak var faceNameLabel: UILabel!
     
-    @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-
-    
-    
+    @IBOutlet weak var personNameTextField: UITextField!
     @IBAction func detect(_ sender: Any) {
-       let fvPerson = FVRecognitionTrainer.shared.verify(face: FVRecognitionImage(image: self.personImageView.image!))
-        let person = self.persons.filter({ $0.id == fvPerson.faceID }).first!
-        let name = person.name
-        print(name!)
+        do {
+            let detectedimage = try FVRecognitionImage(image: UIImage(named: personNameTextField.text!)!)
+            personImageViwe.image = detectedimage.image
+            let fvPerson =  FVRecognitionTrainer.shared.verify(face: try FVRecognitionImage(image: UIImage(named: personNameTextField.text!)!))
+            let person = self.persons.filter({ $0.id == fvPerson.faceID }).first!
+            let name = person.name
+            self.faceNameLabel.text = name
+        } catch  {
+            self.faceNameLabel.text = "not detected"
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        personImageView.image = image
+       // let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
- 
-
     @IBAction func cameraButtonAction(_ sender: Any) {
         let dat1 = Date().millisecondsSince1970
         let images = [
                       "spartak1",
                       "arman1",
+                      "arman3",
+                      "arman4",
                       "artur1",
                       "rustam1",
+                      "Samo",
+                      "Hayko",
+                      "Armen"
                       ]
         images.forEach({
-            let fvPerson = FVRecognitionTrainer.shared.appendFace(forImage: UIImage(named: $0)!)
+            do {
+            let fvPerson = try FVRecognitionTrainer.shared.appendFace(forImage: UIImage(named: $0)!)
             persons.append(Person(name: $0, id: fvPerson.faceID))
+            } catch {
+                
+            }
         })
         
         FVRecognitionTrainer.shared.startTrain()
         print(Date().millisecondsSince1970 - dat1)
     }
-    
-
-    
-}
-
-extension Date {
-    var millisecondsSince1970:CLong {
-        return CLong((self.timeIntervalSince1970 * 1000.0).rounded())
-    }
-    
 }

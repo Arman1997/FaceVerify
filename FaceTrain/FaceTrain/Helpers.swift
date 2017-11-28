@@ -76,7 +76,12 @@ func >(_ left: Eigen, right: Eigen) -> Bool {
 }
 
 
-
+extension Date {
+    var millisecondsSince1970:CLong {
+        return CLong((self.timeIntervalSince1970 * 1000.0).rounded())
+    }
+    
+}
 
 
 

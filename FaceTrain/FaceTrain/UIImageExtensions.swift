@@ -23,29 +23,24 @@ internal extension UIImage {
         let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
         let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: accuracy)
         let faces = faceDetector?.features(in: personciImage)
+        
+        guard let detectedFaces = faces, !detectedFaces.isEmpty else {
+            return nil
+        }
+        
         let ciImageSize = personciImage.extent.size
         var transform = CGAffineTransform(scaleX: 1, y: -1)
         transform = transform.translatedBy(x: 0, y: -ciImageSize.height)
         
         for face in faces as! [CIFaceFeature] {
-            var faceViewBounds = face.bounds.applying(transform)
-            let viewSize = CGSize(width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant)
-            let scale = min(viewSize.width / ciImageSize.width, viewSize.height / ciImageSize.height)
-            let offsetX = (viewSize.width - ciImageSize.width * scale) / 2
-            let offsetY = (viewSize.height - ciImageSize.height * scale) / 2
-            
-            faceViewBounds = faceViewBounds.applying(CGAffineTransform(scaleX: scale, y: scale))
-            faceViewBounds.origin.x += offsetX
-            faceViewBounds.origin.y += offsetY
-            let faceViewRect = face.bounds.applying(transform)
-            let scaleOffset: CGFloat = 10.0
-            let scaledFaceViewRect = CGRect(x: faceViewRect.origin.x - (scaleOffset / 2)  , y: faceViewRect.origin.y - scaleOffset, width: faceViewRect.size.width + scaleOffset, height: faceViewRect.size.height + scaleOffset)
-            
-            let faceImage = cutFace(image: self, rect: scaledFaceViewRect)
-            var rotatedFaceImage = faceImage
-            if face.hasLeftEyePosition && face.hasRightEyePosition {
-                rotatedFaceImage = imageRotatedByDegrees(oldImage: faceImage, deg: CGFloat(getRotationAngle(firstPoint: face.leftEyePosition, secondPoint: face.rightEyePosition)))
+            guard face.hasLeftEyePosition && face.hasRightEyePosition else {
+                return nil
             }
+            let faceViewRect = face.bounds.applying(transform)
+            let rotationAngle = CGFloat(getRotationAngle(firstPoint: face.leftEyePosition, secondPoint: face.rightEyePosition))
+            let cuttenFaceImage = cutFace(image: self, rect: computeScaleFaceRect(fromRect: faceViewRect, rotationAngle: Double(rotationAngle)))
+            let rotatedFaceImage = imageRotatedByDegrees(oldImage: cuttenFaceImage, deg: rotationAngle)
+
             let processedImage = rotatedFaceImage.resizedForRecognition()
             return processedImage
         }
@@ -70,6 +65,11 @@ internal extension UIImage {
     }
 }
 
+let rotationOffset: CGFloat = 50
+fileprivate func computeScaleFaceRect(fromRect originalRect: CGRect,  rotationAngle: Double)  -> CGRect {
+   return CGRect(x: originalRect.origin.x - rotationOffset, y: originalRect.origin.y - rotationOffset, width: originalRect.size.width + (2 * rotationOffset), height: originalRect.size.height + (2 * rotationOffset))
+}
+
 internal let TrainFaceImageWidthConstant: CGFloat = 100
 internal let TrainFaceImageHeightConstant: CGFloat = 100
 
@@ -90,8 +90,6 @@ fileprivate func getRotationAngle(firstPoint: CGPoint, secondPoint: CGPoint) -> 
 fileprivate func getDistance(ofPoint firstPoint: CGPoint, fromPoint secondPoint: CGPoint) -> CGFloat {
     return sqrt(pow((firstPoint.x - secondPoint.x),2) + pow((firstPoint.y - secondPoint.y),2))
 }
-
-
 
 fileprivate func imageRotatedByDegrees(oldImage: UIImage, deg degrees: CGFloat) -> UIImage {
     let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: oldImage.size.width, height: oldImage.size.height))

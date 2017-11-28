@@ -11,6 +11,10 @@ import UIKit
 import Foundation
 import LASwift
 
+enum FVError: Error {
+    case noFaceDetected
+}
+
 internal struct TrainFaceBitArray {
     var bitMap: Vector
     init(image: UIImage) {
@@ -22,11 +26,15 @@ internal struct TrainFaceBitArray {
 
 public class FVRecognitionImage {
     private var bitArray: TrainFaceBitArray!
+    var image = UIImage()
     
-    init(image: UIImage) {
-        let resizedImage = image.resizedForRecognition()
-        let detectedFaceImage = resizedImage.detectFace()
-        self.bitArray = TrainFaceBitArray(image: detectedFaceImage!.grayScaleImage())
+    init(image: UIImage) throws {
+       // let imageForDetection = image.resizedForRecognition()
+        guard let detectedFaceImage = image.detectFace() else {
+            throw FVError.noFaceDetected
+        }
+        self.bitArray = TrainFaceBitArray(image: detectedFaceImage.grayScaleImage())
+        self.image = detectedFaceImage.grayScaleImage()
     }
     
     internal func getBitArray() -> TrainFaceBitArray {

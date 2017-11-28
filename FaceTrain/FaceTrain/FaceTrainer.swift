@@ -46,12 +46,16 @@ final class FVRecognitionTrainer {
         findEigens()
     }
     
-    func appendFace(forImage faceImage: UIImage) -> FVPerson {
-        let recognitionImageBitsArray = FVRecognitionImage(image: faceImage).getBitArray()
-        self.facesBitArraysCollection.append(recognitionImageBitsArray)
-        let person = FVPerson(id: UUID().uuidString)
-        personsList.append(person)
-        return person
+    func appendFace(forImage faceImage: UIImage) throws -> FVPerson {
+        do {
+            let recognitionImageBitsArray =  try FVRecognitionImage(image: faceImage).getBitArray()
+            self.facesBitArraysCollection.append(recognitionImageBitsArray)
+            let person = FVPerson(id: UUID().uuidString)
+            personsList.append(person)
+            return person
+        } catch (let error) {
+            throw error
+        }
     }
     
     
@@ -96,6 +100,7 @@ final class FVRecognitionTrainer {
         
         let dividingVectors = trainFaceVectors.map({ sum(abs($0 - weightVector))})
         let personIndex = mini(dividingVectors)
+        print("personindex \(personIndex)")
         return personsList[personIndex]
     }
   
