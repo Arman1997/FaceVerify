@@ -15,14 +15,7 @@ enum FVError: Error {
     case noFaceDetected
 }
 
-internal struct TrainFaceBitArray {
-    var bitMap: Vector
-    init(image: UIImage) {
-        let rgbaImage = RGBAImage(image: image)
-        let rgbaImageBitArray = Array(rgbaImage!.pixels)
-        bitMap = rgbaImageBitArray.map({ (Double($0.B) + Double($0.R) + Double($0.G)) / Double(3)})
-    }
-}
+
 
 public class FVRecognitionImage {
     private var bitArray: TrainFaceBitArray!

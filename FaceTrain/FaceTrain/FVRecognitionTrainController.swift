@@ -1,6 +1,6 @@
 //
-//  FaceTrainer.swift
-//  FaceTrain
+//  FVRecognitionTrainController.swift
+//  FVRecognitionTrainController
 //
 //  Created by Arman Galstyan on 9/17/17.
 //  Copyright © 2017 Arman Galstyan. All rights reserved.
@@ -8,6 +8,11 @@
 
 import Foundation
 import LASwift
+import UIKit
+
+extension String: Error {
+    
+}
 
 final class FVPerson {
     private var _faceID: String!
@@ -22,9 +27,12 @@ final class FVPerson {
 }
 
 final class FVRecognitionTrainController {
+    
+    typealias MeanValuesVector = Vector
+    
     private let percenteage: Double = 0.1
     private var facesBitArraysCollection = [TrainFaceBitArray]()
-    private var averageFace = Vector()
+    private var meanValuesVector = MeanValuesVector()
     private var averageVectors: Matrix!
     private var transposeOfAverageVectors: Matrix!
     private var transposeOfCovarianseMatrix: Matrix!
@@ -35,7 +43,7 @@ final class FVRecognitionTrainController {
     
     
     func startTrain() {
-        makeAverageFace()
+        countMeanValuesVector()
         countAverageVectors()
         countCovariance()
         findEigens()
@@ -54,14 +62,14 @@ final class FVRecognitionTrainController {
     }
     
     
-    private func makeAverageFace() {
+    private func countMeanValuesVector() {
         let faceCollectionCount = facesBitArraysCollection.count
-        averageFace = sum(Matrix(facesBitArraysCollection.map({ $0.bitMap })),.Column)
-        averageFace = rdivide(averageFace, Double(faceCollectionCount))
+        meanValuesVector = sum(Matrix(facesBitArraysCollection.map({ $0.bitArray })),.Column)
+        meanValuesVector = rdivide(meanValuesVector, Double(faceCollectionCount))
     }
     
     private func countAverageVectors() {
-        transposeOfAverageVectors = Matrix(facesBitArraysCollection.map({ $0.bitMap - averageFace }))
+        transposeOfAverageVectors = Matrix(facesBitArraysCollection.map({ $0.bitArray - meanValuesVector }))
         averageVectors = transpose(transposeOfAverageVectors)
     }
     
@@ -80,9 +88,9 @@ final class FVRecognitionTrainController {
     }
     
     func verify(face: FVRecognitionImage) -> FVPerson {
-        let faceBitMap = face.getBitArray().bitMap
+        let faceBitMap = face.getBitArray().bitArray
         var faceMatrix = zeros(faceBitMap.count, 1)
-        faceMatrix = insert(faceMatrix, col: faceBitMap - averageFace, at: 0)
+        faceMatrix = insert(faceMatrix, col: faceBitMap - meanValuesVector, at: 0)
         let weightMatrix = mtimes(eigensMatrixTranspose, faceMatrix)
         let weightVector = weightMatrix[col: 0]
         

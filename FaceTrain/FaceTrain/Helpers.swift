@@ -31,7 +31,8 @@ func eigen(_ A: Matrix) -> [Eigen] {
     // Right eigenvectors
     var vr = [__CLPK_doublereal](repeating: 0, count: Int(N*N))
     
-    dgeev_(UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), &N, &matrix, &N, &wr, &wi, &vl, &N, &vr, &N, &workspaceQuery, &lwork, &error)
+    var nC1 = N,nC2 = N,nC3 = N
+    dgeev_(UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), &N, &matrix, &nC1, &wr, &wi, &vl, &nC2, &vr, &nC3, &workspaceQuery, &lwork, &error)
     
     // prints "102.0"
     print("\(workspaceQuery)")
@@ -40,7 +41,7 @@ func eigen(_ A: Matrix) -> [Eigen] {
     var workspace = [Double](repeating: 0.0, count: Int(workspaceQuery))
     lwork = __CLPK_integer(workspaceQuery)
     
-    dgeev_(UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), &N, &matrix, &N, &wr, &wi, &vl, &N, &vr, &N, &workspace, &lwork, &error)
+    dgeev_(UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), UnsafeMutablePointer(mutating: ("V" as NSString).utf8String), &N, &matrix, &nC1, &wr, &wi, &vl, &nC2, &vr, &nC3, &workspace, &lwork, &error)
     
     var eigenValues = Vector(wr)
     var eigens = [Eigen]()
