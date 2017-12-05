@@ -96,6 +96,7 @@
 		C2173AC81F6E6A9400DE3A1B /* FaceTrain */ = {
 			isa = PBXGroup;
 			children = (
+				C21FC8DD1FD74B8300077BDB /* RecognitionModels */,
 				C20855791F764F70002A97E3 /* extensions */,
 				C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */,
 				C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */,
@@ -109,6 +110,13 @@
 				C2B8EB411F708F530020E9BE /* Helpers.swift */,
 			);
 			path = FaceTrain;
+			sourceTree = "<group>";
+		};
+		C21FC8DD1FD74B8300077BDB /* RecognitionModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = RecognitionModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -21,9 +21,8 @@ final class FVPerson {
     
 }
 
-final class FVRecognitionTrainer {
+final class FVRecognitionTrainController {
     private let percenteage: Double = 0.1
-    static  let shared = FVRecognitionTrainer()
     private var facesBitArraysCollection = [TrainFaceBitArray]()
     private var averageFace = Vector()
     private var averageVectors: Matrix!
@@ -33,10 +32,6 @@ final class FVRecognitionTrainer {
     private var eigensMatrixTranspose: Matrix!
     private var porjectionMatrix: Matrix!
     private var personsList = [FVPerson]()
-    
-    private init() {
-        
-    }
     
     
     func startTrain() {
