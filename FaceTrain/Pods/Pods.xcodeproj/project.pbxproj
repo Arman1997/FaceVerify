@@ -46,7 +46,7 @@
 		0D62604801DA6DB79B3FD67A3A5180A6 /* Pods-FaceTrain-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FaceTrain-acknowledgements.markdown"; sourceTree = "<group>"; };
 		16A0F483CA24D137B5DAD8790C1C51BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		16F5A973C2930A71B219F5BA7A9EA81C /* LASwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LASwift-prefix.pch"; sourceTree = "<group>"; };
-		1AAB78A5D3650D133EB812112B583EDE /* Pods-FaceTrain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-FaceTrain.modulemap"; sourceTree = "<group>"; };
+		1AAB78A5D3650D133EB812112B583EDE /* Pods-FaceTrain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FaceTrain.modulemap"; sourceTree = "<group>"; };
 		1AD14121BD4D2EF8CF330F11AFD5345D /* VectorStatistics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VectorStatistics.swift; path = Sources/VectorStatistics.swift; sourceTree = "<group>"; };
 		21B0C6440FE1B61D0D08A7B021923CE9 /* MatrixStatistics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatrixStatistics.swift; path = Sources/MatrixStatistics.swift; sourceTree = "<group>"; };
 		29781EAB1A030FF666F92EB0FEB1A95F /* Pods-FaceTrain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FaceTrain.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,18 +62,18 @@
 		7FE27E5FB661FFA285C0A8B8DCD18198 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85483A6D5E707236F085CFAD9BECEAB7 /* Pods-FaceTrain-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FaceTrain-acknowledgements.plist"; sourceTree = "<group>"; };
 		8C63B50EA82C52280B390274B7908284 /* Pods-FaceTrain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FaceTrain-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		99AD98526A97BEEB1E4AC5CD9B5B8A98 /* LASwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = LASwift.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99AD98526A97BEEB1E4AC5CD9B5B8A98 /* LASwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LASwift.modulemap; sourceTree = "<group>"; };
 		9EE5258E8296682C523077D1C55F2B5D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F2D3C6BFBBFD7ADAA48A318772E1E56 /* Random.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Sources/Random.swift; sourceTree = "<group>"; };
 		9FE9EE4E6C21E7CDBB4C5345ED1D14E9 /* Pods-FaceTrain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FaceTrain-dummy.m"; sourceTree = "<group>"; };
 		A18A48951F10FECC375849BAD5D2C02F /* Vector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Sources/Vector.swift; sourceTree = "<group>"; };
 		B0C8C07B3D2B1E041DCD83FFAF52EF57 /* VectorArithmetic.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VectorArithmetic.swift; path = Sources/VectorArithmetic.swift; sourceTree = "<group>"; };
-		B42C18D44739D78E1840BCF557B915A0 /* LASwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LASwift.framework; path = LASwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B42C18D44739D78E1840BCF557B915A0 /* LASwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LASwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB2791CB99DE1C8C676C71F11492653 /* Pods-FaceTrain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FaceTrain.debug.xcconfig"; sourceTree = "<group>"; };
 		C216DC894F64CD131A9BE0765E05367B /* LASwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LASwift-dummy.m"; sourceTree = "<group>"; };
 		CC53C2BC8084B2ACE73B387FC7B33472 /* Numeric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Numeric.swift; path = Sources/Numeric.swift; sourceTree = "<group>"; };
-		E2C28824763E4FF82039EB32B8FCD3F3 /* Pods_FaceTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FaceTrain.framework; path = "Pods-FaceTrain.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C28824763E4FF82039EB32B8FCD3F3 /* Pods_FaceTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4179E488F652BEB21E306BCCCE7358F /* Pods-FaceTrain-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FaceTrain-resources.sh"; sourceTree = "<group>"; };
 		EF7A63D6D0BABCA5050351FABC7EB7C9 /* VectorTrigonometry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VectorTrigonometry.swift; path = Sources/VectorTrigonometry.swift; sourceTree = "<group>"; };
 		FF45A49D894A279A4BB3040138D7C78D /* Util.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Sources/Util.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 				EF7A63D6D0BABCA5050351FABC7EB7C9 /* VectorTrigonometry.swift */,
 				54DAD9030A948AA61F346DBD5F5D539C /* Support Files */,
 			);
-			name = LASwift;
 			path = LASwift;
 			sourceTree = "<group>";
 		};
@@ -274,7 +273,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
+				TargetAttributes = {
+					8B50218E9B63D759FE28A639D0531D50 = {
+						LastSwiftMigration = 0910;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -366,7 +370,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -383,7 +388,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -391,14 +398,20 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -504,7 +517,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -512,15 +527,21 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -571,7 +592,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

@@ -144,7 +144,7 @@ public func ^ (_ a: Matrix, _ p: Int) -> Matrix {
 public func inv(_ A: Matrix) -> Matrix {
     precondition(A.rows == A.cols, "Matrix dimensions must agree")
     let B = Matrix(A)
-    
+    /*
     var N = __CLPK_integer(A.rows)
     var pivot = [__CLPK_integer](repeating: 0, count: Int(N))
     
@@ -169,7 +169,7 @@ public func inv(_ A: Matrix) -> Matrix {
     dgetri_(&N, &(B.flat), &N, &pivot, &work, &lWork, &error)
     
     precondition(error == 0, "Matrix is non invertible")
-    
+    */
     return B
 }
 

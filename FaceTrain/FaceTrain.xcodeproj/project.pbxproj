@@ -14,7 +14,8 @@
 		C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */; };
 		C2173AD71F6E6A9400DE3A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2173AD51F6E6A9400DE3A1B /* LaunchScreen.storyboard */; };
 		C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */; };
-		C238181E1F6EC0C4002B1BC9 /* FaceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */; };
+		C21FC8E11FD7512300077BDB /* TrainFaceBitArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */; };
+		C238181E1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */; };
 		C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C238181F1F6EC522002B1BC9 /* Assets.xcassets */; };
 		C2B8EB421F708F530020E9BE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EB411F708F530020E9BE /* Helpers.swift */; };
 		D52D5F69FFBD0C825EB7077B /* Pods_FaceTrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */; };
@@ -32,7 +33,8 @@
 		C2173AD61F6E6A9400DE3A1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2173AD81F6E6A9400DE3A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBImage.swift; sourceTree = "<group>"; };
-		C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceTrainer.swift; sourceTree = "<group>"; };
+		C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainFaceBitArray.swift; sourceTree = "<group>"; };
+		C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FVRecognitionTrainController.swift; sourceTree = "<group>"; };
 		C238181F1F6EC522002B1BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2B8EB411F708F530020E9BE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +107,7 @@
 				C2173AD81F6E6A9400DE3A1B /* Info.plist */,
 				C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */,
 				C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */,
-				C238181D1F6EC0C4002B1BC9 /* FaceTrainer.swift */,
+				C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */,
 				C238181F1F6EC522002B1BC9 /* Assets.xcassets */,
 				C2B8EB411F708F530020E9BE /* Helpers.swift */,
 			);
@@ -115,6 +117,7 @@
 		C21FC8DD1FD74B8300077BDB /* RecognitionModels */ = {
 			isa = PBXGroup;
 			children = (
+				C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */,
 			);
 			name = RecognitionModels;
 			sourceTree = "<group>";
@@ -149,12 +152,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Arman Galstyan";
 				TargetAttributes = {
 					C2173AC51F6E6A9400DE3A1B = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 3KY9JDW7NM;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -251,11 +255,12 @@
 			files = (
 				C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */,
 				C2B8EB421F708F530020E9BE /* Helpers.swift in Sources */,
+				C21FC8E11FD7512300077BDB /* TrainFaceBitArray.swift in Sources */,
 				C208557B1F764F8A002A97E3 /* UIImageExtensions.swift in Sources */,
 				C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */,
 				C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */,
 				C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */,
-				C238181E1F6EC0C4002B1BC9 /* FaceTrainer.swift in Sources */,
+				C238181E1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +296,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -299,7 +306,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -342,7 +353,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -350,7 +363,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -386,7 +403,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inconceptlabs.FaceTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -400,7 +418,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inconceptlabs.FaceTrain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
