@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C208557B1F764F8A002A97E3 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */; };
 		C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */; };
 		C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */; };
 		C2173ACF1F6E6A9400DE3A1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */; };
@@ -17,14 +16,17 @@
 		C21FC8E11FD7512300077BDB /* TrainFaceBitArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */; };
 		C238181E1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */; };
 		C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C238181F1F6EC522002B1BC9 /* Assets.xcassets */; };
-		C2B8EB421F708F530020E9BE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EB411F708F530020E9BE /* Helpers.swift */; };
+		C2B8EB421F708F530020E9BE /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EB411F708F530020E9BE /* HelperMethods.swift */; };
+		C2CDB44D1FD7904B0089E849 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB44C1FD7904B0089E849 /* Extensions.swift */; };
+		C2CDB44F1FD791160089E849 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB44E1FD791160089E849 /* Constants.swift */; };
+		C2CDB4511FD791F10089E849 /* FVRecognitionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB4501FD791F10089E849 /* FVRecognitionImage.swift */; };
+		C2DCE0191FD76F7600273323 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCE0181FD76F7600273323 /* FaceDetector.swift */; };
 		D52D5F69FFBD0C825EB7077B /* Pods_FaceTrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2277F10A2A426C723858CBD5 /* Pods-FaceTrain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceTrain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FaceTrain/Pods-FaceTrain.debug.xcconfig"; sourceTree = "<group>"; };
 		7670FFC17BFDC8E4EFDADD45 /* Pods-FaceTrain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FaceTrain.release.xcconfig"; path = "Pods/Target Support Files/Pods-FaceTrain/Pods-FaceTrain.release.xcconfig"; sourceTree = "<group>"; };
-		C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		C2173AC61F6E6A9400DE3A1B /* FaceTrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +38,11 @@
 		C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainFaceBitArray.swift; sourceTree = "<group>"; };
 		C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FVRecognitionTrainController.swift; sourceTree = "<group>"; };
 		C238181F1F6EC522002B1BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C2B8EB411F708F530020E9BE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C2B8EB411F708F530020E9BE /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
+		C2CDB44C1FD7904B0089E849 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C2CDB44E1FD791160089E849 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C2CDB4501FD791F10089E849 /* FVRecognitionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FVRecognitionImage.swift; sourceTree = "<group>"; };
+		C2DCE0181FD76F7600273323 /* FaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 		DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,7 +78,6 @@
 		C20855791F764F70002A97E3 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C208557A1F764F8A002A97E3 /* UIImageExtensions.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -98,6 +103,8 @@
 		C2173AC81F6E6A9400DE3A1B /* FaceTrain */ = {
 			isa = PBXGroup;
 			children = (
+				C2CDB44B1FD78FB90089E849 /* Utils */,
+				C2DCE0171FD76F5600273323 /* DetectionAndVerificationControllers */,
 				C21FC8DD1FD74B8300077BDB /* RecognitionModels */,
 				C20855791F764F70002A97E3 /* extensions */,
 				C2173AC91F6E6A9400DE3A1B /* AppDelegate.swift */,
@@ -107,9 +114,7 @@
 				C2173AD81F6E6A9400DE3A1B /* Info.plist */,
 				C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */,
 				C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */,
-				C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */,
 				C238181F1F6EC522002B1BC9 /* Assets.xcassets */,
-				C2B8EB411F708F530020E9BE /* Helpers.swift */,
 			);
 			path = FaceTrain;
 			sourceTree = "<group>";
@@ -118,8 +123,28 @@
 			isa = PBXGroup;
 			children = (
 				C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */,
+				C2CDB4501FD791F10089E849 /* FVRecognitionImage.swift */,
 			);
 			name = RecognitionModels;
+			sourceTree = "<group>";
+		};
+		C2CDB44B1FD78FB90089E849 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C2B8EB411F708F530020E9BE /* HelperMethods.swift */,
+				C2CDB44C1FD7904B0089E849 /* Extensions.swift */,
+				C2CDB44E1FD791160089E849 /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		C2DCE0171FD76F5600273323 /* DetectionAndVerificationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */,
+				C2DCE0181FD76F7600273323 /* FaceDetector.swift */,
+			);
+			name = DetectionAndVerificationControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,12 +279,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2173ACC1F6E6A9400DE3A1B /* ViewController.swift in Sources */,
-				C2B8EB421F708F530020E9BE /* Helpers.swift in Sources */,
+				C2B8EB421F708F530020E9BE /* HelperMethods.swift in Sources */,
 				C21FC8E11FD7512300077BDB /* TrainFaceBitArray.swift in Sources */,
-				C208557B1F764F8A002A97E3 /* UIImageExtensions.swift in Sources */,
 				C2173ACA1F6E6A9400DE3A1B /* AppDelegate.swift in Sources */,
+				C2CDB44D1FD7904B0089E849 /* Extensions.swift in Sources */,
+				C2CDB44F1FD791160089E849 /* Constants.swift in Sources */,
+				C2CDB4511FD791F10089E849 /* FVRecognitionImage.swift in Sources */,
 				C2173AD21F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld in Sources */,
 				C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */,
+				C2DCE0191FD76F7600273323 /* FaceDetector.swift in Sources */,
 				C238181E1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +361,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -384,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
