@@ -17,23 +17,6 @@ enum FVError: Error {
 
 
 
-public class FVRecognitionImage {
-    private var bitArray: TrainFaceBitArray!
-    var image = UIImage()
-    
-    init(image: UIImage) throws {
-       // let imageForDetection = image.resizedForRecognition()
-        guard let detectedFaceImage = image.detectFace() else {
-            throw FVError.noFaceDetected
-        }
-        self.bitArray = TrainFaceBitArray(image: detectedFaceImage.grayScaleImage())
-        self.image = detectedFaceImage.grayScaleImage()
-    }
-    
-    internal func getBitArray() -> TrainFaceBitArray {
-        return self.bitArray
-    }
-}
 
 
 

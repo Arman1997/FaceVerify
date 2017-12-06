@@ -10,7 +10,7 @@ import Foundation
 import Accelerate
 import LASwift
 
-func eigen(_ A: Matrix) -> [Eigen] {
+internal func eigen(_ A: Matrix) -> [Eigen] {
     var matrix = [__CLPK_doublereal]()
     for iIndex in 0..<A.rows {
         for jIndex in 0..<A.cols {
@@ -52,8 +52,29 @@ func eigen(_ A: Matrix) -> [Eigen] {
     return eigens
 }
 
+internal func computeScaleFaceRect(fromRect originalRect: CGRect,  rotationAngle: Double)  -> CGRect {
+    return CGRect(x: originalRect.origin.x - rotationOffset, y: originalRect.origin.y - rotationOffset, width: originalRect.size.width + (2 * rotationOffset), height: originalRect.size.height + (2 * rotationOffset))
+}
 
-struct Eigen {
+internal func cutFace(image: UIImage,rect: CGRect) -> UIImage {
+    let cropImage = image.cgImage!
+    let cropedImage = cropImage.cropping(to: rect)
+    return UIImage(cgImage: cropedImage!)
+}
+
+
+internal func getRotationAngle(firstPoint: CGPoint, secondPoint: CGPoint) -> Double {
+    let h = firstPoint.y - secondPoint.y
+    let l = getDistance(ofPoint: firstPoint, fromPoint: secondPoint)
+    let  sin = h / l
+    return  -asin(Double(sin)) * 180 / Double.pi
+}
+
+internal func getDistance(ofPoint firstPoint: CGPoint, fromPoint secondPoint: CGPoint) -> CGFloat {
+    return sqrt(pow((firstPoint.x - secondPoint.x),2) + pow((firstPoint.y - secondPoint.y),2))
+}
+
+internal struct Eigen {
     var value: Double!
     var vectorMatrix: Matrix!
     var vector: Vector
@@ -68,26 +89,11 @@ struct Eigen {
     
 }
 
-func <(_ left: Eigen, right: Eigen) -> Bool {
+internal func <(_ left: Eigen, right: Eigen) -> Bool {
     return left.value < right.value
 }
 
-func >(_ left: Eigen, right: Eigen) -> Bool {
+internal func >(_ left: Eigen, right: Eigen) -> Bool {
     return left.value > right.value
 }
-
-
-extension Date {
-    var millisecondsSince1970:CLong {
-        return CLong((self.timeIntervalSince1970 * 1000.0).rounded())
-    }
-    
-}
-
-
-
-
-
-
-
 

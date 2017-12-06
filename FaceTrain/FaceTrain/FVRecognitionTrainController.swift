@@ -30,7 +30,7 @@ final class FVRecognitionTrainController {
     
     typealias MeanValuesVector = Vector
     
-    private let percenteage: Double = 0.1
+    private let normalEigensPercenteage: Int = 40
     private var facesBitArraysCollection = [TrainFaceBitArray]()
     private var meanValuesVector = MeanValuesVector()
     private var averageVectors: Matrix!
@@ -79,12 +79,22 @@ final class FVRecognitionTrainController {
     
     private func findEigens() {
         let temporaryEigens = eigen(transposeOfCovarianseMatrix)
-        let normalCount = 4
+        let normalCount = getNormalEigensCount(fromCount: temporaryEigens.count)
+        print(normalCount)
         var sortedEigens = temporaryEigens.sorted(by: >)
         let normalEigens = sortedEigens[0..<normalCount]
         let eigensArray = normalEigens.map({ mtimes(averageVectors, $0.vectorMatrix)[col: 0] })
-        self.eigensMatrixTranspose = Matrix(eigensArray)
+        let normalizedEigensArray = eigensArray.map({ $0.normalized() })
+        self.eigensMatrixTranspose = Matrix(normalizedEigensArray)
         self.porjectionMatrix = mtimes(self.eigensMatrixTranspose, averageVectors)
+    }
+    
+    private func getNormalEigensCount(fromCount count: Int) -> Int {
+        let normalCount = Double((count * normalEigensPercenteage)) / 100.0
+        if Int(normalCount) > 0 {
+            return Int(normalCount)
+        }
+        return count
     }
     
     func verify(face: FVRecognitionImage) -> FVPerson {

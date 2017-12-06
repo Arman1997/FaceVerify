@@ -45,19 +45,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+    let verifier = FVRecognitionTrainController()
     @IBOutlet weak var personNameTextField: UITextField!
     @IBAction func detect(_ sender: Any) {
-      /*  do {
+        do {
             let detectedimage = try FVRecognitionImage(image: UIImage(named: personNameTextField.text!)!)
             personImageViwe.image = detectedimage.image
-            let fvPerson =  FVRecognitionTrainController.shared.verify(face: try FVRecognitionImage(image: UIImage(named: personNameTextField.text!)!))
+            let fvPerson =  verifier.verify(face: try FVRecognitionImage(image: UIImage(named: personNameTextField.text!)!))
             let person = self.persons.filter({ $0.id == fvPerson.faceID }).first!
             let name = person.name
             self.faceNameLabel.text = name
         } catch  {
             self.faceNameLabel.text = "not detected"
-        }*/
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     
     @IBAction func cameraButtonAction(_ sender: Any) {
-      /*  let dat1 = Date().millisecondsSince1970
+        let dat1 = Date().millisecondsSince1970
         let images = [
                       "spartak1",
                       "arman1",
@@ -80,15 +80,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                       ]
         images.forEach({
             do {
-            let fvPerson = try FVRecognitionTrainController.shared.appendFace(forImage: UIImage(named: $0)!)
+            let fvPerson = try verifier.appendFace(forImage: UIImage(named: $0)!)
             persons.append(Person(name: $0, id: fvPerson.faceID))
             } catch {
                 
             }
         })
         
-        FVRecognitionTrainController.shared.startTrain()
-        print(Date().millisecondsSince1970 - dat1)*/
+        verifier.startTrain()
+        print(Date().millisecondsSince1970 - dat1)
         
     }
 }
