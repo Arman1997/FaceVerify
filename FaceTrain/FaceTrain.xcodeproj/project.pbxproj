@@ -15,11 +15,11 @@
 		C2173ADF1F6E6AE000DE3A1B /* RGBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */; };
 		C21FC8E11FD7512300077BDB /* TrainFaceBitArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */; };
 		C238181E1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */; };
-		C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C238181F1F6EC522002B1BC9 /* Assets.xcassets */; };
 		C2B8EB421F708F530020E9BE /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EB411F708F530020E9BE /* HelperMethods.swift */; };
 		C2CDB44D1FD7904B0089E849 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB44C1FD7904B0089E849 /* Extensions.swift */; };
 		C2CDB44F1FD791160089E849 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB44E1FD791160089E849 /* Constants.swift */; };
 		C2CDB4511FD791F10089E849 /* FVRecognitionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDB4501FD791F10089E849 /* FVRecognitionImage.swift */; };
+		C2CDB4531FD7AE460089E849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2CDB4521FD7AE460089E849 /* Assets.xcassets */; };
 		C2DCE0191FD76F7600273323 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCE0181FD76F7600273323 /* FaceDetector.swift */; };
 		D52D5F69FFBD0C825EB7077B /* Pods_FaceTrain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */; };
 /* End PBXBuildFile section */
@@ -37,11 +37,11 @@
 		C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBImage.swift; sourceTree = "<group>"; };
 		C21FC8E01FD7512300077BDB /* TrainFaceBitArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainFaceBitArray.swift; sourceTree = "<group>"; };
 		C238181D1F6EC0C4002B1BC9 /* FVRecognitionTrainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FVRecognitionTrainController.swift; sourceTree = "<group>"; };
-		C238181F1F6EC522002B1BC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2B8EB411F708F530020E9BE /* HelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		C2CDB44C1FD7904B0089E849 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2CDB44E1FD791160089E849 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C2CDB4501FD791F10089E849 /* FVRecognitionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FVRecognitionImage.swift; sourceTree = "<group>"; };
+		C2CDB4521FD7AE460089E849 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		C2DCE0181FD76F7600273323 /* FaceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
 		DA4889C8AE331785EEAD6EB1 /* Pods_FaceTrain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FaceTrain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,10 +111,10 @@
 				C2173ACB1F6E6A9400DE3A1B /* ViewController.swift */,
 				C2173ACD1F6E6A9400DE3A1B /* Main.storyboard */,
 				C2173AD51F6E6A9400DE3A1B /* LaunchScreen.storyboard */,
+				C2CDB4521FD7AE460089E849 /* Assets.xcassets */,
 				C2173AD81F6E6A9400DE3A1B /* Info.plist */,
 				C2173AD01F6E6A9400DE3A1B /* FaceTrain.xcdatamodeld */,
 				C2173ADE1F6E6AE000DE3A1B /* RGBImage.swift */,
-				C238181F1F6EC522002B1BC9 /* Assets.xcassets */,
 			);
 			path = FaceTrain;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2173AD71F6E6A9400DE3A1B /* LaunchScreen.storyboard in Resources */,
-				C23818201F6EC522002B1BC9 /* Assets.xcassets in Resources */,
+				C2CDB4531FD7AE460089E849 /* Assets.xcassets in Resources */,
 				C2173ACF1F6E6A9400DE3A1B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

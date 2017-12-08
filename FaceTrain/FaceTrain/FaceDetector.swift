@@ -52,18 +52,12 @@ internal final class FVFaceDetector {
         }
         
         let rotationAngle = CGFloat(getRotationAngle(firstPoint: face.leftEyePosition, secondPoint: face.rightEyePosition))
-        if abs(round(rotationAngle)) <= minumumRotationAngle {
-            let faceViewRect = face.bounds.applying(transform)
-            let cuttenFaceImage = cutFace(image: imageForFaceDetection, rect: computeScaleFaceRect(fromRect: faceViewRect, rotationAngle: Double(rotationAngle)))
-            let rotatedFaceImage = cuttenFaceImage.rotated(byDegrees: rotationAngle)
+        let faceViewRect = face.bounds.applying(transform)
+        let cuttenFaceImage = cutFace(image: imageForFaceDetection, rect: computeScaleFaceRect(fromRect: faceViewRect, rotationAngle: Double(rotationAngle)))
+        let rotatedFaceImage = cuttenFaceImage.rotated(byDegrees: rotationAngle)
             
-            let processedImage = rotatedFaceImage.resizedForRecognition()
-            return processedImage
-        } else {
-            return try self.detectFace(inImage: image.rotated(byDegrees: rotationAngle) )
-        }
-
-        
+        let processedImage = rotatedFaceImage.resizedForRecognition()
+        return processedImage
 
     }
     

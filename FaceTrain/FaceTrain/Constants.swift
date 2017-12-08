@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-internal let rotationOffset: CGFloat = 50
-internal let TrainFaceImageWidthConstant: CGFloat = 100
-internal let TrainFaceImageHeightConstant: CGFloat = 100
+internal let rotationOffset: CGFloat = 0
+internal let TrainFaceImageWidthConstant: CGFloat = 150
+internal let TrainFaceImageHeightConstant: CGFloat = 150
 internal let minumumRotationAngle: CGFloat = 1

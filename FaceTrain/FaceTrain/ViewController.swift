@@ -44,6 +44,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet weak var cameraButton: UIButton!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let vector1 = [1.0,2.0,3.0]
+        let vector2 = [0.0,0.0,0.0]
+        let vector3 = [0.0,0.0,0.0]
+        let matr = Matrix([vector1,vector2,vector3])
+        print(sum(matr,.Row))
+        let sVec = [2.0,2.0,2.0]
+        print(times(matr, sVec))
     }
     let verifier = FVRecognitionTrainController()
     @IBOutlet weak var personNameTextField: UITextField!
@@ -69,14 +76,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         let dat1 = Date().millisecondsSince1970
         let images = [
                       "spartak1",
-                      "arman1",
-                      "arman3",
-                      "arman4",
                       "artur1",
                       "rustam1",
                       "Samo",
                       "Hayko",
-                      "Armen"
+                      "Armen",
+                      "arman1",
+                      "HaykoTest",
+            "arman1",
+            "arman8",
+            "arman3"
                       ]
         images.forEach({
             do {
@@ -86,7 +95,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 
             }
         })
-        
+        /*
+        for index in 0..<405 {
+            do {
+                if index != 176 {
+                    print(index)
+                let fvPerson = try verifier.appendFace(forImage: UIImage(named: "face\(index)")!)
+                persons.append(Person(name:  "face\(index)", id: fvPerson.faceID))
+                }
+            } catch {
+               print("aaa")
+            }
+        }*/
         verifier.startTrain()
         print(Date().millisecondsSince1970 - dat1)
         

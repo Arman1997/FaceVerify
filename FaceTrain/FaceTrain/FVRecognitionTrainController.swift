@@ -30,7 +30,7 @@ final class FVRecognitionTrainController {
     
     typealias MeanValuesVector = Vector
     
-    private let normalEigensPercenteage: Int = 40
+    private let normalEigensPercenteage: Int = 15
     private var facesBitArraysCollection = [TrainFaceBitArray]()
     private var meanValuesVector = MeanValuesVector()
     private var averageVectors: Matrix!
@@ -41,12 +41,11 @@ final class FVRecognitionTrainController {
     private var porjectionMatrix: Matrix!
     private var personsList = [FVPerson]()
     
-    
     func startTrain() {
-        countMeanValuesVector()
-        countAverageVectors()
-        countCovariance()
-        findEigens()
+        self.countMeanValuesVector()
+        self.countAverageVectors()
+        self.countCovariance()
+        self.findEigens()
     }
     
     func appendFace(forImage faceImage: UIImage) throws -> FVPerson {
