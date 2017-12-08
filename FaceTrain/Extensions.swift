@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import LASwift
 
-internal extension UIImage {
+internal extension UIImage { 
     func resizedForRecognition() -> UIImage {
         UIGraphicsBeginImageContext(CGSize(width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant))
         self.draw(in: CGRect(x: 0, y: 0, width: TrainFaceImageWidthConstant, height: TrainFaceImageHeightConstant))
