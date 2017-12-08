@@ -85,6 +85,7 @@ final class FVRecognitionTrainController {
         let eigensArray = normalEigens.map({ mtimes(averageVectors, $0.vectorMatrix)[col: 0] })
         let normalizedEigensArray = eigensArray.map({ $0.normalized() })
         self.eigensMatrixTranspose = Matrix(normalizedEigensArray)
+        self.eigensMatrixTranspose = plus(eigensMatrixTranspose, meanValuesVector)
         self.porjectionMatrix = mtimes(self.eigensMatrixTranspose, averageVectors)
     }
     

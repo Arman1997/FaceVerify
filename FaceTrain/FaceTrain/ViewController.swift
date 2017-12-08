@@ -50,7 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         let matr = Matrix([vector1,vector2,vector3])
         print(sum(matr,.Row))
         let sVec = [2.0,2.0,2.0]
-        print(times(matr, sVec))
+        print(plus(matr, sVec))
     }
     let verifier = FVRecognitionTrainController()
     @IBOutlet weak var personNameTextField: UITextField!
@@ -75,17 +75,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBAction func cameraButtonAction(_ sender: Any) {
         let dat1 = Date().millisecondsSince1970
         let images = [
+            "a1t",
+            "a2t",
+            "a3t",
+            "a4t",
+            "a5t",
+            "a6t",
+            "a7t",
+            "a8t",
+            "a9t",
+            "a10t",
+            "a11t",
+            "a12t",
+            "a13t",
+            "a14t",
+            "a15t",
+            "a16t",
+            "a17t",
+            "arman1",
+            "arman8",
+            "arman9",
+            "h1t",
+            "h2t",
+            "h3t",
+            "a8t",
                       "spartak1",
                       "artur1",
                       "rustam1",
                       "Samo",
-                      "Hayko",
                       "Armen",
-                      "arman1",
-                      "HaykoTest",
-            "arman1",
-            "arman8",
-            "arman3"
                       ]
         images.forEach({
             do {
@@ -95,18 +113,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 
             }
         })
-        /*
-        for index in 0..<405 {
-            do {
-                if index != 176 {
-                    print(index)
-                let fvPerson = try verifier.appendFace(forImage: UIImage(named: "face\(index)")!)
-                persons.append(Person(name:  "face\(index)", id: fvPerson.faceID))
-                }
-            } catch {
-               print("aaa")
-            }
-        }*/
         verifier.startTrain()
         print(Date().millisecondsSince1970 - dat1)
         
